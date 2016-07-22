@@ -8,3 +8,24 @@ Paso 3) download Desktop GitHub on your computer.
 Paso 4) fork the branch "podam" on you Github.
 Paso 5) Setup GitHub to to CircleCI and run test.
 Paso 6) Check Result
+Paso 7) Read the information on TestSumary Tab.
+Paso 8) clic to "Set up your test runner to output in JUnit-style XML" (https://circleci.com/docs/test-metadata/#metadata-collection-in-custom-test-steps) read, this information we indicate us that test result of Junit will automatically store the files Build Artifacts on format XML. but we revised the "Maven Surfire Plunging for JAVA JUnit Results" section.
+Paso 9) clic on "Maven Surefire plugin" and see the instrucction on USAGE, clic on "Usage page".
+Paso 10) revise the version of the plugin on pom.xml file.
+Paso 11) search the pom.xml on Podam Project ("find . -name *pom.xml*)" it is on root directory resposit.
+Paso 12) open pom.xml file and examine this "<artifactId>maven-surefire-plugin</artifactId>". here are the line command "<skip>true</skip>" that skipe the test. elimate and commit
+Paso 13) Run test on Rebuild and wait status Success
+Paso 14) check TestSumary, and find circle.yml according ("https://circleci.com/docs/test-metadata/#metadata-collection-in-custom-test-steps")
+Paso 15) search the circle.yml on Podam Project ("find . -name *circle.yml*)". if no find, then create.
+Paso 16 create circle.yml and copy/paste the bellow Maven Surefire Plugin for Java JUnit results test:
+test:
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+
+Paso 17) run test again.
+https://circleci.com/gh/forondaw/podam/44#artifacts
+https://github.com/forondaw/podam
+************************************************
+Hi dear user,
+the problem is resolve, (you need create circle.yml required and deleted <skip>true</skip> maven  java plugin )please follow the steps above.
