@@ -1,0 +1,10 @@
+paso 1) instruct the customer try again add your repository and forward us the SSH key sent to your email from your Github account. This will ensure that the customer really has added the project to CircleCI.
+Paso 2) ask the customer a screenshot of the process and result after activating the green build on your project.
+
+**************************************************
+debug technical: 
+
+Paso 3) download Desktop GitHub on your computer.
+Paso 4) fork the branch "podam" on you Github.
+Paso 5) Setup GitHub to to CircleCI and run test.
+Paso 6) Check Result
